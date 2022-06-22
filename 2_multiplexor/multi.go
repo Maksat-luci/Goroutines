@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
@@ -55,6 +56,7 @@ func say(msg string) <-chan string {
 		for i := 0; ; i++ {
 			// записываем в канал стринг из поступающего стринга и I
 			c <- fmt.Sprintf("%s %d", msg, i)
+			time.Sleep(time.Second)
 			// приостанавливаем работу функции на 1 секунду
 		}
 	}()
